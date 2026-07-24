@@ -48,3 +48,18 @@ def update_todo(todo_id:int , update_todo:Todo):
     return {
         "error" : "Todo Not Found"
     }
+
+
+
+@app.delete("/todos/{todo_id}")
+def delete_todo(todo_id:int):
+    for index,todo in enumerate(todos):
+        if todo.id == todo_id:
+            todos.pop(index)
+
+            return {
+                "message" : "Data Deleted" 
+            }
+    return {
+        "error" : "Todo not Found"
+    }
