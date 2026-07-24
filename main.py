@@ -10,3 +10,12 @@ class Todo(BaseModel):
     id : int
     title : str
     completed : bool
+
+
+@app.post("/todos")
+def create_todo(todo:Todo):
+    todos.append(todo)
+    return {
+        "message" : "Todo Added",
+        "data" : todo
+    }
