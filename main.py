@@ -19,3 +19,7 @@ def create_todo(todo:Todo):
         "message" : "Todo Added",
         "data" : todo
     }
+
+@app.get("/todos")
+def get_todos():
+    return todos
