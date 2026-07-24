@@ -33,3 +33,18 @@ def get_todo(todo_id:int):
     return {
         "error" : "Todo not found"
     }
+
+
+@app.put("/todos/{todo_id}")
+def update_todo(todo_id:int , update_todo:Todo):
+    for index,todo in enumerate(todos):
+        if todo.id == todo_id:
+            todos[index] = update_todo
+
+            return {
+                "messgae" : "Data Updated",
+                "data" : update_todo
+            }
+    return {
+        "error" : "Todo Not Found"
+    }
